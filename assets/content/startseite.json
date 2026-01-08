@@ -1,0 +1,10 @@
+{
+  "h1": "Herzlich Willkommen in Klein Lafferde",
+  "intro": "Hier erfahren Sie Interessantes und Aktuelles aus unserem Ort, insbesondere zum Thema Dorfgemeinschaftshaus. Unterstützen Sie bitte unsere Arbeit und werden Sie Mitglied des Vereins!",
+  "heroImage": "",
+  "tiles": [
+    { "title": "Aktuelles", "text": "Neuigkeiten aus dem Ort", "href": "/aktuelles/" },
+    { "title": "Termine", "text": "Veranstaltungen & Treffen", "href": "/termine/" },
+    { "title": "Mitglied werden", "text": "Formular & Satzung", "href": "/mitglied-werden/" }
+  ]
+}
