@@ -1,0 +1,23 @@
+{
+  "title": "Ortsgemeinschaft Klein Lafferde e.V.",
+  "claim": "eine starke Gemeinschaft",
+  "logo": "",
+  "nav": [
+    { "label": "Start", "href": "/" },
+    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Über Klein Lafferde", "href": "/ueber-klein-lafferde/" },
+    { "label": "Termine", "href": "/termine/" },
+    { "label": "Mitglied werden", "href": "/mitglied-werden/" },
+    { "label": "Datenschutz", "href": "/datenschutz.html" },
+    { "label": "Impressum", "href": "/impressum.html" }
+  ],
+  "footer": {
+    "line1": "Ortsgemeinschaft Klein Lafferde e.V.",
+    "line2": "Gemeinsam für unseren Ort."
+  },
+  "contact": {
+    "email": "info@og-kleinlafferde.de",
+    "phone": "",
+    "address": ""
+  }
+}
