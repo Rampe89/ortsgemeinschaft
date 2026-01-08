@@ -13,21 +13,16 @@
   <div class="wrap nav">
 
     <div class="brand">
+      <!-- Logo: optional. Wenn Datei fehlt, wird es ausgeblendet. -->
       <img
         src="assets/img/logo-og-klein-lafferde.svg"
         alt="Ortsgemeinschaft Klein Lafferde e.V."
         class="logo"
-        onerror="this.style.display='none';document.getElementById('brandFallback').style.display='block';"
+        onerror="this.style.display='none';"
       >
 
-      <div id="brandFallback" class="brandText" style="display:none;">
-        <b>Ortsgemeinschaft Klein Lafferde e.V.</b>
-        <span>eine starke Gemeinschaft</span>
-        <span class="brandSig" aria-hidden="true"><i></i></span>
-      </div>
-
-      <!-- If logo exists, still show name/claim + small signature -->
-      <div class="brandText" style="display:block;">
+      <!-- EINMAL Text, immer sichtbar -->
+      <div class="brandText">
         <b>Ortsgemeinschaft Klein Lafferde e.V.</b>
         <span>eine starke Gemeinschaft</span>
         <span class="brandSig" aria-hidden="true"><i></i></span>
@@ -50,13 +45,45 @@
 <main>
 
   <section class="hero">
-    <div class="wrap">
-      <h1>Herzlich Willkommen in Klein Lafferde</h1>
-      <p class="heroLead">
-        Hier erfahren Sie Interessantes und Aktuelles aus unserem Ort, insbesondere zum Thema Dorfgemeinschaftshaus.
-        Unterstützen Sie bitte unsere Arbeit und werden Sie Mitglied des Vereins.
-      </p>
-      <div class="heroRule" aria-hidden="true"></div>
+    <div class="wrap heroGrid">
+
+      <!-- Text -->
+      <div>
+        <h1>Herzlich Willkommen in Klein Lafferde</h1>
+        <p class="heroLead">
+          Hier erfahren Sie Interessantes und Aktuelles aus unserem Ort, insbesondere zum Thema Dorfgemeinschaftshaus.
+          Unterstützen Sie bitte unsere Arbeit und werden Sie Mitglied des Vereins.
+        </p>
+        <div class="heroRule" aria-hidden="true"></div>
+      </div>
+
+      <!-- Großer Bild-Platzhalter (für Ortswappen / Umriss / Motiv) -->
+      <aside class="heroMedia" aria-label="Startseitenmotiv">
+        <div class="heroMediaInner">
+
+          <!-- Variante A: Platzhalter (bis echtes Bild vorhanden) -->
+          <div class="heroMediaPh">
+            <div class="heroMediaLabel">
+              <b>Startseitenmotiv</b>
+              <span>
+                Platzhalter für Ortswappen / Stadtumriss / Dorfgemeinschaftshaus-Motiv.
+                Später als einzelnes Bild einfügen (kein Hintergrund, damit Text gut lesbar bleibt).
+              </span>
+            </div>
+          </div>
+
+          <!-- Variante B (später): echtes Bild einsetzen, dafür die Platzhalter-DIV oben löschen
+          <img src="assets/img/ortsmotiv.png" alt="Klein Lafferde – Ortsmotiv">
+          -->
+
+        </div>
+
+        <div class="heroMediaCap">
+          <div><strong>Motiv</strong> für Klein Lafferde</div>
+          <div>dezente Darstellung</div>
+        </div>
+      </aside>
+
     </div>
   </section>
 
