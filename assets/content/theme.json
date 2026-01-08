@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "bg": "#ffffff",
+    "ink": "#0b1020",
+    "muted": "#5e6880",
+    "line": "#e6e8ee",
+    "primary": "#1e3366",
+    "accent": "#d2182d",
+    "card_bg": "#ffffff",
+    "card_border": "#e6e8ee"
+  },
+  "layout": {
+    "content_width": 1120,
+    "radius": 14
+  },
+  "pattern": {
+    "enabled": true,
+    "opacity": 0.85,
+    "dot": "rgba(11,16,32,.075)",
+    "size": 22
+  }
+}
