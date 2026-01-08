@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ortsgemeinschaft Klein Lafferde e.V.</title>
+  <meta name="description" content="Aktuelles und Informationen aus Klein Lafferde – Ortsgemeinschaft Klein Lafferde e.V." />
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="/">
+        <img class="logo" id="brandLogo" src="/assets/uploads/logo.png" alt="Logo">
+        <div class="brandText">
+          <b id="brandTitle">Ortsgemeinschaft Klein Lafferde e.V.</b>
+          <span id="brandClaim">eine starke Gemeinschaft</span>
+        </div>
+      </a>
+
+      <nav class="menu" id="siteMenu" aria-label="Hauptnavigation"></nav>
+    </div>
+  </div>
+</header>
+
+<main class="pattern">
+  <section class="hero">
+    <div class="wrap heroGrid">
+      <h1 id="homeH1">Herzlich Willkommen in Klein Lafferde</h1>
+      <p id="homeIntro">Inhalte laden…</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="sectionTitle">Schnellzugriff</h2>
+      <div class="cards" id="homeTiles"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b id="footerLine1" style="color:var(--ink)">Ortsgemeinschaft Klein Lafferde e.V.</b><br>
+    <span id="footerLine2">Gemeinsam für unseren Ort.</span>
+
+    <div class="footerLinks">
+      <a class="btn" href="/impressum.html">Impressum</a>
+      <a class="btn" href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+<script>
+  (async () => {
+    try {
+      const start = await (await fetch("/assets/content/startseite.json",{cache:"no-store"})).json();
+      window.mountStart && window.mountStart(start);
+    } catch {}
+  })();
+</script>
+
+<!-- Netlify Identity Token Catcher -->
+<script>
+(function () {
+  const hash = window.location.hash || "";
+  if (hash.includes("confirmation_token=") || hash.includes("invite_token=") || hash.includes("recovery_token=")) {
+    window.location.replace("/admin/" + hash);
+  }
+})();
+</script>
+
+</body>
+</html>
