@@ -1,77 +1,80 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
   <title>Ortsgemeinschaft Klein Lafferde e.V.</title>
-  <meta name="description" content="Aktuelles und Informationen aus Klein Lafferde – Ortsgemeinschaft Klein Lafferde e.V." />
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
 
-<header class="topbar">
-  <div class="wrap">
-    <div class="nav">
-      <a class="brand" href="/">
-        <img class="logo" id="brandLogo" src="/assets/uploads/logo.png" alt="Logo">
-        <div class="brandText">
-          <b id="brandTitle">Ortsgemeinschaft Klein Lafferde e.V.</b>
-          <span id="brandClaim">eine starke Gemeinschaft</span>
-        </div>
-      </a>
+<body class="pattern">
 
-      <nav class="menu" id="siteMenu" aria-label="Hauptnavigation"></nav>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <b>Ortsgemeinschaft Klein Lafferde e.V.</b><br>
+      <span>eine starke Gemeinschaft</span>
     </div>
+
+    <nav class="menu">
+      <a class="active" href="#">Start</a>
+      <a href="#">Über uns</a>
+      <a href="#">Über Klein Lafferde</a>
+      <a href="#">Termine</a>
+      <a href="#">Mitglied werden</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </nav>
   </div>
 </header>
 
-<main class="pattern">
+<main>
+
   <section class="hero">
-    <div class="wrap heroGrid">
-      <h1 id="homeH1">Herzlich Willkommen in Klein Lafferde</h1>
-      <p id="homeIntro">Inhalte laden…</p>
+    <div class="wrap">
+      <h1>Herzlich Willkommen in Klein Lafferde</h1>
+      <p>
+        Hier erfahren Sie Interessantes und Aktuelles aus unserem Ort,
+        insbesondere zum Thema Dorfgemeinschaftshaus.
+        Unterstützen Sie bitte unsere Arbeit und werden Sie Mitglied des Vereins.
+      </p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <h2 class="sectionTitle">Schnellzugriff</h2>
-      <div class="cards" id="homeTiles"></div>
+      <h2>Schnellzugriff</h2>
+
+      <div class="cards">
+        <div class="card" data-accent="red">
+          <h3>Aktuelles</h3>
+          <p>Neuigkeiten aus dem Ort</p>
+          <a class="btn" href="#">Öffnen</a>
+        </div>
+
+        <div class="card" data-accent="blue">
+          <h3>Termine</h3>
+          <p>Veranstaltungen &amp; Treffen</p>
+          <a class="btn" href="#">Öffnen</a>
+        </div>
+
+        <div class="card" data-accent="green">
+          <h3>Mitglied werden</h3>
+          <p>Formular &amp; Satzung</p>
+          <a class="btn" href="#">Öffnen</a>
+        </div>
+      </div>
     </div>
   </section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <b id="footerLine1" style="color:var(--ink)">Ortsgemeinschaft Klein Lafferde e.V.</b><br>
-    <span id="footerLine2">Gemeinsam für unseren Ort.</span>
-
-    <div class="footerLinks">
-      <a class="btn" href="/impressum.html">Impressum</a>
-      <a class="btn" href="/datenschutz.html">Datenschutz</a>
-    </div>
+    <b>Ortsgemeinschaft Klein Lafferde e.V.</b><br>
+    Gemeinsam für unseren Ort.
   </div>
 </footer>
-
-<script src="/assets/js/site.js"></script>
-<script>
-  (async () => {
-    try {
-      const start = await (await fetch("/assets/content/startseite.json",{cache:"no-store"})).json();
-      window.mountStart && window.mountStart(start);
-    } catch {}
-  })();
-</script>
-
-<!-- Netlify Identity Token Catcher -->
-<script>
-(function () {
-  const hash = window.location.hash || "";
-  if (hash.includes("confirmation_token=") || hash.includes("invite_token=") || hash.includes("recovery_token=")) {
-    window.location.replace("/admin/" + hash);
-  }
-})();
-</script>
 
 </body>
 </html>
