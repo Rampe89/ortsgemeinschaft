@@ -1,0 +1,141 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "de"
+
+collections:
+  - name: "settings"
+    label: "Website"
+    files:
+      - label: "Design (Theme)"
+        name: "theme"
+        file: "assets/content/theme.json"
+        fields:
+          - label: "colors"
+            name: "colors"
+            widget: "object"
+            fields:
+              - { label: "bg", name: "bg", widget: "string" }
+              - { label: "ink", name: "ink", widget: "string" }
+              - { label: "muted", name: "muted", widget: "string" }
+              - { label: "line", name: "line", widget: "string" }
+              - { label: "primary", name: "primary", widget: "string" }
+              - { label: "accent", name: "accent", widget: "string" }
+              - { label: "card_bg", name: "card_bg", widget: "string" }
+              - { label: "card_border", name: "card_border", widget: "string" }
+          - label: "layout"
+            name: "layout"
+            widget: "object"
+            fields:
+              - { label: "content_width", name: "content_width", widget: "number", value_type: "int" }
+              - { label: "radius", name: "radius", widget: "number", value_type: "int" }
+          - label: "pattern"
+            name: "pattern"
+            widget: "object"
+            fields:
+              - { label: "enabled", name: "enabled", widget: "boolean", default: true }
+              - { label: "opacity", name: "opacity", widget: "number", value_type: "float" }
+              - { label: "dot", name: "dot", widget: "string" }
+              - { label: "size", name: "size", widget: "number", value_type: "int" }
+
+      - label: "Site (Navigation, Footer, Kontakt)"
+        name: "site"
+        file: "assets/content/site.json"
+        fields:
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "claim", name: "claim", widget: "string", required: false }
+          - { label: "logo", name: "logo", widget: "image", required: false }
+          - label: "nav"
+            name: "nav"
+            widget: "list"
+            fields:
+              - { label: "label", name: "label", widget: "string" }
+              - { label: "href", name: "href", widget: "string" }
+          - label: "footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "line1", name: "line1", widget: "string", required: false }
+              - { label: "line2", name: "line2", widget: "string", required: false }
+          - label: "contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "email", name: "email", widget: "string", required: false }
+              - { label: "phone", name: "phone", widget: "string", required: false }
+              - { label: "address", name: "address", widget: "text", required: false }
+
+  - name: "pages"
+    label: "Seiteninhalte"
+    files:
+      - label: "Startseite"
+        name: "startseite"
+        file: "assets/content/startseite.json"
+        fields:
+          - { label: "h1", name: "h1", widget: "string" }
+          - { label: "intro", name: "intro", widget: "text" }
+          - { label: "heroImage", name: "heroImage", widget: "image", required: false }
+          - label: "kacheln"
+            name: "tiles"
+            widget: "list"
+            fields:
+              - { label: "title", name: "title", widget: "string" }
+              - { label: "text", name: "text", widget: "text", required: false }
+              - { label: "href", name: "href", widget: "string" }
+
+  - name: "aktuelles"
+    label: "Aktuelles"
+    file: "assets/content/aktuelles.json"
+    fields:
+      - label: "items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "date", name: "date", widget: "datetime", required: false }
+          - { label: "excerpt", name: "excerpt", widget: "text", required: false }
+          - { label: "link", name: "link", widget: "string", required: false }
+
+  - name: "vereine"
+    label: "Vereine / Gruppen / Verbände"
+    file: "assets/content/vereine.json"
+    fields:
+      - label: "items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "name", name: "name", widget: "string" }
+          - { label: "category", name: "category", widget: "select", options: ["Verein", "Gruppe", "Verband", "Sonstiges"] }
+          - { label: "desc", name: "desc", widget: "text", required: false }
+          - { label: "website", name: "website", widget: "string", required: false }
+          - { label: "email", name: "email", widget: "string", required: false }
+
+  - name: "presse"
+    label: "Presseberichte"
+    file: "assets/content/presse.json"
+    fields:
+      - label: "items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "date", name: "date", widget: "datetime", required: false }
+          - { label: "source", name: "source", widget: "string", required: false }
+          - { label: "link", name: "link", widget: "string", required: false }
+
+  - name: "media"
+    label: "Fotos & Videos"
+    file: "assets/content/media.json"
+    fields:
+      - label: "items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "date", name: "date", widget: "datetime", required: false }
+          - { label: "images", name: "images", widget: "list", required: false, field: { label: "Bild", name: "image", widget: "image" } }
+          - { label: "videos", name: "videos", widget: "list", required: false, field: { label: "Video-URL", name: "url", widget: "string" } }
