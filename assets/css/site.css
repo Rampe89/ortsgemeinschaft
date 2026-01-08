@@ -1,11 +1,15 @@
 :root{
-  /* Base */
+  /* Neutral base */
   --bg:#ffffff;
   --ink:#0b1020;
   --muted:#5e6880;
-  --line:#e6e8ee;
+  --line:#e9ecf2;
 
-  /* Logo accent palette */
+  /* One UI accent (keep calm) */
+  --accent:#1E88E5;        /* ruhig (Logo-Blau) */
+  --accent-weak: rgba(30,136,229,.14);
+
+  /* Logo palette (used ONLY as tiny signature dots) */
   --c-red:    #E53935;
   --c-orange: #FB8C00;
   --c-yellow: #FDD835;
@@ -13,22 +17,25 @@
   --c-blue:   #1E88E5;
   --c-purple: #8E24AA;
 
-  --accent: var(--c-red);
-
   --max:1120px;
-  --radius:18px;
+  --radius:16px;
   --base:15px;
 
-  /* Pattern */
-  --patternDot: rgba(11,16,32,.055);
-  --patternSize: 18px;
-  --patternOpacity:.9;
+  /* Background dots (very subtle) */
+  --patternDot: rgba(11,16,32,.035);
+  --patternSize: 22px;
+  --patternOpacity:.55;
+
+  /* Card */
+  --card-bg:#fff;
+  --card-border: rgba(11,16,32,.08);
+  --shadow: 0 18px 46px rgba(11,16,32,.08);
 }
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  font-family: Inter, system-ui, sans-serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:var(--bg);
   color:var(--ink);
   font-size:var(--base);
@@ -36,7 +43,7 @@ body{
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-/* ===== PATTERN ===== */
+/* ===== Subtle dot background ===== */
 .pattern{ position:relative; }
 .pattern::before{
   content:"";
@@ -46,32 +53,37 @@ a{color:inherit;text-decoration:none}
   background-size:var(--patternSize) var(--patternSize);
   opacity:var(--patternOpacity);
   pointer-events:none;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.0), rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,.0));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.0), rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,.0));
 }
 
-/* ===== HEADER / BRAND ===== */
+/* ===== Header ===== */
 header{
-  border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.92);
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.86);
   backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
 }
 .nav{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:18px;
-  padding:16px 0;
+  padding:14px 0;
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:14px;
-  min-width: 260px;
+  min-width: 280px;
 }
 .logo{
-  height:44px;
+  height:42px;
   width:auto;
-  max-width:180px;
+  max-width:190px;
   object-fit:contain;
   display:block;
 }
@@ -88,193 +100,188 @@ header{
   margin-top:2px;
 }
 
-/* ===== NAV (FIX: kein Pill-Look mehr) ===== */
+/* Logo signature dots (small, calm) */
+.brandSig{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:6px;
+}
+.brandSig i{
+  display:block;
+  width:6px;height:6px;border-radius:99px;
+  background:var(--c-blue);
+  box-shadow:
+    10px 0 0 var(--c-green),
+    20px 0 0 var(--c-red);
+  opacity:.9;
+}
+
+/* ===== Nav (simple, not shouty) ===== */
 .menu{
   display:flex;
   align-items:center;
   justify-content:flex-end;
   gap:18px;
   font-size:13px;
-  font-weight:800;
-  letter-spacing:.02em;
-  text-transform:none;
+  font-weight:700;
+  letter-spacing:.01em;
   white-space:nowrap;
 }
-
 .menu a{
   position:relative;
-  display:inline-flex;
-  align-items:center;
-  padding:10px 2px;          /* minimal, damit es nicht wie Button wirkt */
-  color:rgba(11,16,32,.70);
+  padding:10px 2px;
+  color:rgba(11,16,32,.72);
   border-bottom:2px solid transparent;
   transition: color .15s ease, border-color .15s ease;
 }
-
-.menu a:hover{
-  color:var(--ink);
-}
-
+.menu a:hover{ color:var(--ink); }
 .menu a.active{
   color:var(--ink);
-  border-bottom-color:var(--accent);
+  border-bottom-color: var(--accent);
 }
 
-/* Dezenter Dot-Cluster neben aktivem Link (klein, nicht „dekoig“) */
-.menu a.active::after{
-  content:"";
-  margin-left:10px;
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--c-red);
-  box-shadow:
-    9px 0 0 var(--c-blue),
-    18px 0 0 var(--c-green);
-  transform: translateY(1px);
-  opacity:.9;
-}
-
-/* Mobile: Menu verstecken (Burger kann später rein) */
+/* no extra dots in nav – keep it calm */
 @media (max-width: 980px){
-  .menu{ display:none; }
-  .brand{ min-width: 0; }
+  .menu{display:none;}
+  .brand{min-width:0;}
 }
 
-/* ===== HERO ===== */
+/* ===== Hero ===== */
 .hero{
-  padding:58px 0 40px;
+  padding:56px 0 36px;
+  border-bottom:1px solid var(--line);
 }
 .hero h1{
-  font-size:clamp(38px,5vw,64px);
+  font-size:clamp(38px,5.2vw,66px);
   font-weight:900;
-  margin:0 0 18px;
-  line-height:1.05;
+  margin:0 0 14px;
+  line-height:1.02;
+  letter-spacing:-.02em;
 }
-.hero h1::after{
-  content:"";
-  display:block;
+.heroLead{
+  max-width: 70ch;
+  color:rgba(11,16,32,.62);
+  line-height:1.75;
+  margin:0;
+}
+
+/* A SINGLE subtle accent rule instead of rainbow gradient */
+.heroRule{
+  margin-top:18px;
+  width:160px;
   height:6px;
-  width:240px;
-  margin-top:14px;
   border-radius:999px;
-  background:linear-gradient(
-    90deg,
-    var(--c-red),
-    var(--c-orange),
-    var(--c-yellow),
-    var(--c-green),
-    var(--c-blue),
-    var(--c-purple)
-  );
-  opacity:.7;
-}
-.hero p{
-  max-width:60ch;
-  color:var(--muted);
-  line-height:1.7;
+  background: var(--accent);
+  opacity:.22;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== Sections ===== */
 .section{
-  padding:40px 0;
-  border-top:1px solid var(--line);
+  padding:36px 0;
 }
-.section h2{
-  font-size:24px;
+.sectionTitle{
+  margin:0 0 16px;
+  font-size:22px;
   font-weight:900;
-  margin:0 0 20px;
+  letter-spacing:-.01em;
 }
 
-/* ===== CARDS ===== */
+/* ===== Cards ===== */
 .cards{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
 }
-@media(max-width:900px){
-  .cards{grid-template-columns:1fr}
+@media (max-width: 980px){
+  .cards{grid-template-columns: 1fr;}
 }
 
 .card{
+  background: var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding:20px 20px 18px;
+  box-shadow: none;
   position:relative;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:22px;
   overflow:hidden;
 }
 
-/* Accent bar */
+/* very subtle left accent, not rainbow */
 .card::before{
   content:"";
   position:absolute;
-  top:0;left:0;right:0;
-  height:4px;
-  background:var(--accent);
-}
-
-/* Dot cluster */
-.card::after{
-  content:"";
-  position:absolute;
-  top:16px;right:16px;
-  width:10px;height:10px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:
-    -14px 0 0 var(--c-blue),
-    -7px 12px 0 var(--c-green),
-     7px 12px 0 var(--c-yellow),
-     14px 0 0 var(--c-purple);
+  left:0; top:0; bottom:0;
+  width:4px;
+  background: var(--accent);
   opacity:.18;
 }
 
+/* remove decorative dot clusters in cards: too playful */
 .card h3{
   margin:0 0 8px;
-  font-size:13px;
+  font-size:12px;
   font-weight:900;
   letter-spacing:.10em;
   text-transform:uppercase;
 }
 .card p{
-  margin:0 0 16px;
-  color:var(--muted);
-  line-height:1.6;
+  margin:0 0 14px;
+  color:rgba(11,16,32,.60);
+  line-height:1.7;
+  font-size:13px;
 }
 
-/* Accent variants */
-.card[data-accent="red"]{--accent:var(--c-red)}
-.card[data-accent="blue"]{--accent:var(--c-blue)}
-.card[data-accent="green"]{--accent:var(--c-green)}
-.card[data-accent="orange"]{--accent:var(--c-orange)}
-.card[data-accent="purple"]{--accent:var(--c-purple)}
-.card[data-accent="yellow"]{--accent:var(--c-yellow)}
+/* Assign accent per card, but keep it subtle */
+.card[data-accent="blue"]   { --accent: var(--c-blue); }
+.card[data-accent="green"]  { --accent: var(--c-green); }
+.card[data-accent="red"]    { --accent: var(--c-red); }
+.card[data-accent="orange"] { --accent: var(--c-orange); }
+.card[data-accent="purple"] { --accent: var(--c-purple); }
+.card[data-accent="yellow"] { --accent: var(--c-yellow); }
 
-/* ===== BUTTONS ===== */
+/* ===== Buttons (calm) ===== */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:10px 18px;
+  padding:10px 16px;
   border-radius:999px;
   font-size:11px;
   font-weight:900;
-  letter-spacing:.18em;
+  letter-spacing:.16em;
   text-transform:uppercase;
-  border:1px solid var(--accent);
-  color:var(--accent);
-  transition: background .15s ease, transform .08s ease;
+  border:1px solid rgba(11,16,32,.16);
+  color: rgba(11,16,32,.82);
+  background:#fff;
+  transition: background .15s ease, border-color .15s ease, transform .08s ease;
 }
 .btn:hover{
-  background:color-mix(in srgb, var(--accent) 10%, white);
+  background: rgba(11,16,32,.03);
   transform: translateY(-1px);
 }
 
-/* ===== FOOTER ===== */
+/* accent button variant (used sparingly) */
+.btnAccent{
+  border-color: color-mix(in srgb, var(--accent) 55%, rgba(11,16,32,.16));
+  color: color-mix(in srgb, var(--accent) 70%, var(--ink));
+}
+.btnAccent:hover{
+  background: color-mix(in srgb, var(--accent) 8%, white);
+}
+
+/* ===== Footer ===== */
 footer{
   border-top:1px solid var(--line);
-  padding:30px 0 50px;
+  padding:28px 0 46px;
+  color:rgba(11,16,32,.55);
   font-size:12px;
-  color:var(--muted);
 }
+.footerLinks{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
 
